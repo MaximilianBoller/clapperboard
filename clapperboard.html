@@ -1,0 +1,158 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clapperboard Layout</title>
+    <link rel="stylesheet" href="css/clapperboard.css"> <!-- Your CSS file -->
+    <link rel="stylesheet" href="css/color.css"> <!-- Your CSS file -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+
+</head>
+<body>
+    <div class="clapperboard">
+
+        <div id = "clapperboard_layout">
+            <div id = 'production'> <div>PROD. </div> <div id = 'production_text'>Harry Potter</div></div>
+
+            <div class = 'two_by_two'>ROLL<div class ='two_by_two_text'>1</div></div>
+            <div class = 'two_by_two'>SCENE <div class ='two_by_two_text'>2</div></div>
+            <div class = 'two_by_two'>TAKE <div class ='two_by_two_text'>0</div></div>
+
+            <div class = 'three_by_one'>Director</div>
+            <div class = 'three_by_one'>Camera</div>
+            <div class = 'two_by_one'>Roll</div>
+            <div id = 'slate_button' class = "two_by_one">
+            </div>
+
+            <div class = 'two_by_one'>EXT</div>
+        </div>
+
+
+        <div id = 'camera_preview'>
+            <div id = 'camera_preview_toggle'>
+                
+            </div>
+            Camera Preview
+        </div>    
+
+        <div id = 'storyboard_preview'>
+            <div id = 'storyboard_preview_toggle'>
+                
+            </div>
+            Storyboard Preview
+        </div>  
+        
+        
+        <div id = 'leaf_logo'>
+        </div>
+
+
+        <div id = 'slate_left' class = 'slate'>
+        </div>
+
+        <div id = 'slate_right' class = 'slate'>
+        </div>
+
+
+        <div id = 'slate_button'>
+            
+        </div>
+
+
+
+
+    </div>
+
+
+
+
+
+
+<script>
+
+
+function toggleSlates() {
+    console.log("slate");
+        let slateLeft = document.getElementById('slate_left');
+        let slateRight = document.getElementById('slate_right');
+
+        let slateButton = document.getElementById('slate_button');
+
+        let colors = ["#fff200", "#00aeef","#ed1c27"]
+        for (let i = 0; i <= 2; ++i) {
+            setTimeout(() => {
+                console.log("beep");
+                slateButton.style.backgroundColor = colors[i];
+
+            }, i * 1000); // Each beep is delayed by `i * 1000` milliseconds
+        }
+
+        setTimeout(() => {
+            slateLeft.style.left = "0";
+            slateRight.style.right = "0";
+            slateButton.style.backgroundColor = "var(--action)";
+
+            setTimeout(() => {
+                console.log("CLAP");
+
+            }, 300);
+
+
+            setTimeout(() => {
+                slateLeft.style.left = "-50vw";
+                slateRight.style.right = "-50vw";
+                
+            }, 2000);
+        }, 3000);
+
+
+
+
+
+
+        // Re-open them after a 2-second delay
+
+    }
+// Example trigger
+
+
+
+
+
+
+    function moveElement(id) {
+        let element = document.getElementById(id);
+        // Check the current top position and toggle between 0 and -100vh
+        let currentTop = window.getComputedStyle(element).left;
+        if (currentTop === '0px') {
+            element.style.left = 'calc(-100vw + 4rem)'; // Move up
+        } else {
+            element.style.left = '0'; // Move down
+        }
+    }
+
+    document.getElementById('camera_preview_toggle').addEventListener('click', function() {
+        moveElement('camera_preview');
+    });
+
+    document.getElementById('storyboard_preview_toggle').addEventListener('click', function() {
+        moveElement('storyboard_preview');
+    });
+
+    document.getElementById('slate_button').addEventListener('click', function() {
+        toggleSlates(); 
+    });
+
+
+
+
+
+</script>
+
+
+
+
+</body>
+</html>
