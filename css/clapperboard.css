@@ -6,10 +6,16 @@ body {
     box-sizing: border-box;
     height: 100vh;
     width: 100vw;
+    max-width: 100vw;
+    max-height: 100vh;
     overflow: hidden;
 }
 
 
+.clapperboard{
+    overflow: hidden;
+    position: relative;
+}   
 #clapperboard_layout{
     display: grid;
     grid-template-columns: repeat(6, 1fr);
@@ -22,7 +28,7 @@ body {
     padding-left: 4.5rem;
     box-sizing: border-box;
     position: relative;
-    overflow: hidden !important;
+    overflow: hidden;
 }
 
 
@@ -186,6 +192,7 @@ body {
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
+    display:block;
 }
 
 #slate_left{
